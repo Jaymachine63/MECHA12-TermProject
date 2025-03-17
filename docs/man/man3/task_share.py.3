@@ -1,0 +1,80 @@
+.TH "task_share.py" 3 "MECHA-12 Romi" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+task_share.py \- This file contains classes which allow tasks to share data without the risk of data corruption by interrupts\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.SS "Classes"
+
+.in +1c
+.ti -1c
+.RI "class \fBtask_share\&.BaseShare\fP"
+.br
+.RI "Base class for queues and shares which exchange data between tasks\&. "
+.ti -1c
+.RI "class \fBtask_share\&.Queue\fP"
+.br
+.RI "A queue which is used to transfer data from one task to another\&. "
+.ti -1c
+.RI "class \fBtask_share\&.Share\fP"
+.br
+.RI "An item which holds data to be shared between tasks\&. "
+.in -1c
+.SS "Namespaces"
+
+.in +1c
+.ti -1c
+.RI "namespace \fBtask_share\fP"
+.br
+.in -1c
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBtask_share\&.show_all\fP ()"
+.br
+.RI "Create a string holding a diagnostic printout showing the status of each queue and share in the system\&. "
+.in -1c
+.SS "Variables"
+
+.in +1c
+.ti -1c
+.RI "list \fBtask_share\&.share_list\fP = []"
+.br
+.RI "This is a system-wide list of all the queues and shared variables\&. "
+.ti -1c
+.RI "dict \fBtask_share\&.type_code_strings\fP"
+.br
+.RI "This dictionary allows readable printouts of queue and share data types\&. "
+.in -1c
+.SH "Detailed Description"
+.PP 
+This file contains classes which allow tasks to share data without the risk of data corruption by interrupts\&. 
+
+
+.PP
+\fBAuthor\fP
+.RS 4
+JR Ridgely 
+.RE
+.PP
+\fBDate\fP
+.RS 4
+2017-Jan-01 JRR Approximate date of creation of file 
+
+.PP
+2021-Dec-18 JRR Docstrings changed to work without DoxyPyPy 
+.RE
+.PP
+\fBCopyright\fP
+.RS 4
+This program is copyright (c) 2017-2023 by JR Ridgely and released under the GNU Public License, version 3\&.0\&.
+.RE
+.PP
+It is intended for educational use only, but its use is not limited thereto\&. THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED\&. IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE\&. 
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for MECHA-12 Romi from the source code\&.

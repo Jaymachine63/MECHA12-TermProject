@@ -1,0 +1,128 @@
+.TH "main.py" 3 "MECHA-12 Romi" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+main.py
+.SH SYNOPSIS
+.br
+.PP
+.SS "Namespaces"
+
+.in +1c
+.ti -1c
+.RI "namespace \fBmain\fP"
+.br
+.in -1c
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBmain\&.motor\fP (shares)"
+.br
+.ti -1c
+.RI "\fBmain\&.sensor\fP (shares)"
+.br
+.ti -1c
+.RI "\fBmain\&.user\fP (shares)"
+.br
+.in -1c
+.SS "Variables"
+
+.in +1c
+.ti -1c
+.RI "\fBmain\&.uart\fP = pyb\&.UART(3, 115200)"
+.br
+.RI "For USB Connection nb_in = \fBNB_Input\fP (USB_VCP (), echo=True) "
+.ti -1c
+.RI "\fBmain\&.nb_in\fP = \fBNB_Input\fP (\fBuart\fP, echo=True)"
+.br
+.ti -1c
+.RI "\fBmain\&.tim4\fP = Timer(4, freq=500)"
+.br
+.ti -1c
+.RI "\fBmain\&.Left_Motor\fP = \fBdriver\fP(Pin\&.cpu\&.B7, Pin\&.cpu\&.H0, Pin\&.cpu\&.H1, \fBtim4\fP, 2)"
+.br
+.ti -1c
+.RI "\fBmain\&.Right_Motor\fP = \fBdriver\fP(Pin\&.cpu\&.B6, Pin\&.cpu\&.B2, Pin\&.cpu\&.A9, \fBtim4\fP, 1)"
+.br
+.ti -1c
+.RI "\fBmain\&.Left_Encoder\fP = \fBEncoder\fP(3, Pin\&.cpu\&.A7, Pin\&.cpu\&.A6)"
+.br
+.ti -1c
+.RI "\fBmain\&.Right_Encoder\fP = \fBEncoder\fP(2, Pin\&.cpu\&.A1, Pin\&.cpu\&.A0)"
+.br
+.ti -1c
+.RI "\fBmain\&.line_sensor\fP"
+.br
+.ti -1c
+.RI "\fBmain\&.LBump0\fP = pyb\&.Pin(Pin\&.cpu\&.B4, pyb\&.Pin\&.IN, pull=pyb\&.Pin\&.PULL_UP)"
+.br
+.ti -1c
+.RI "\fBmain\&.LBump1\fP = pyb\&.Pin(Pin\&.cpu\&.B5, pyb\&.Pin\&.IN, pull=pyb\&.Pin\&.PULL_UP)"
+.br
+.ti -1c
+.RI "\fBmain\&.LBump2\fP = pyb\&.Pin(Pin\&.cpu\&.B3, pyb\&.Pin\&.IN, pull=pyb\&.Pin\&.PULL_UP)"
+.br
+.ti -1c
+.RI "\fBmain\&.RBump5\fP = pyb\&.Pin(Pin\&.cpu\&.C9, pyb\&.Pin\&.IN, pull=pyb\&.Pin\&.PULL_UP)"
+.br
+.ti -1c
+.RI "\fBmain\&.RBump4\fP = pyb\&.Pin(Pin\&.cpu\&.B8, pyb\&.Pin\&.IN, pull=pyb\&.Pin\&.PULL_UP)"
+.br
+.ti -1c
+.RI "\fBmain\&.RBump3\fP = pyb\&.Pin(Pin\&.cpu\&.B9, pyb\&.Pin\&.IN, pull=pyb\&.Pin\&.PULL_UP)"
+.br
+.ti -1c
+.RI "\fBmain\&.Line_PID\fP = \fBPID\fP(0\&.1, 0\&.02, 0\&.1, 0\&.02, 0\&.01, 0\&.008)"
+.br
+.ti -1c
+.RI "\fBmain\&.i2c\fP = I2C(2)"
+.br
+.ti -1c
+.RI "\fBmain\&.CONTROLLER\fP"
+.br
+.ti -1c
+.RI "\fBmain\&.baudrate\fP"
+.br
+.ti -1c
+.RI "\fBmain\&.imu\fP = \fBIMU\fP(\fBi2c\fP)"
+.br
+.ti -1c
+.RI "\fBmain\&.yaw_init\fP = imu\&.read_Euler()"
+.br
+.ti -1c
+.RI "\fBmain\&.Lpos\fP"
+.br
+.ti -1c
+.RI "\fBmain\&.Rpos\fP"
+.br
+.ti -1c
+.RI "\fBmain\&.Ltime\fP"
+.br
+.ti -1c
+.RI "\fBmain\&.Rtime\fP"
+.br
+.ti -1c
+.RI "\fBmain\&.heading\fP"
+.br
+.ti -1c
+.RI "\fBmain\&.Leffort\fP"
+.br
+.RI "Shared Variables Stores user_in motor effort\&. "
+.ti -1c
+.RI "\fBmain\&.Reffort\fP"
+.br
+.ti -1c
+.RI "\fBmain\&.task1\fP"
+.br
+.RI "Scheduler tasks\&. "
+.ti -1c
+.RI "\fBmain\&.task2\fP"
+.br
+.ti -1c
+.RI "\fBmain\&.task3\fP"
+.br
+.in -1c
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for MECHA-12 Romi from the source code\&.

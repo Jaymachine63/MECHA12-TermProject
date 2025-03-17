@@ -1,0 +1,186 @@
+.TH "IMU.IMU" 3 "MECHA-12 Romi" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+IMU.IMU
+.SH SYNOPSIS
+.br
+.PP
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fB__init__\fP (self, \fBi2c\fP)"
+.br
+.ti -1c
+.RI "\fBconfigure\fP (self)"
+.br
+.ti -1c
+.RI "\fBcal_status\fP (self)"
+.br
+.ti -1c
+.RI "\fBcal_coeff_read\fP (self)"
+.br
+.ti -1c
+.RI "\fBcal_coeff_write\fP (self)"
+.br
+.ti -1c
+.RI "\fBread_Euler\fP (self)"
+.br
+.ti -1c
+.RI "\fBread_angular_vel\fP (self)"
+.br
+.in -1c
+.SS "Public Attributes"
+
+.in +1c
+.ti -1c
+.RI "\fBi2c\fP = i2c"
+.br
+.ti -1c
+.RI "int \fBIMU\fP = 0x28"
+.br
+.ti -1c
+.RI "int \fBOPR_MODE\fP = 0x3D"
+.br
+.ti -1c
+.RI "int \fBCALIB_STAT\fP = 0x35"
+.br
+.ti -1c
+.RI "int \fBACC_OFFSET\fP = 0x55"
+.br
+.ti -1c
+.RI "int \fBMAG_OFFSET\fP = 0x5B"
+.br
+.ti -1c
+.RI "int \fBGYRO_OFFSET\fP = 0x61"
+.br
+.ti -1c
+.RI "int \fBACC_RADIUS\fP = 0x67"
+.br
+.ti -1c
+.RI "int \fBMAG_RADIUS\fP = 0x69"
+.br
+.ti -1c
+.RI "int \fBEUL_X_LSB\fP = 0x1A"
+.br
+.ti -1c
+.RI "int \fBEUL_X_MSB\fP = 0x1B"
+.br
+.ti -1c
+.RI "int \fBGYRO_X_LSB\fP = 0x14"
+.br
+.ti -1c
+.RI "int \fBGYRO_X_MSB\fP = 0x15"
+.br
+.ti -1c
+.RI "int \fBIMU_MODE\fP = 0b1000"
+.br
+.ti -1c
+.RI "int \fBCOMPASS\fP = 0b1001"
+.br
+.ti -1c
+.RI "int \fBM4G\fP = 0b1010"
+.br
+.ti -1c
+.RI "int \fBNDOF_FMC_OFF\fP = 0b1011"
+.br
+.ti -1c
+.RI "int \fBNDOF\fP = 0b1100"
+.br
+.ti -1c
+.RI "\fBstatus_data\fP = bytes(self\&.i2c\&.mem_read(1, self\&.IMU, self\&.CALIB_STAT))"
+.br
+.ti -1c
+.RI "\fBbyte_value\fP = struct\&.unpack('b', self\&.status_data)[0]"
+.br
+.ti -1c
+.RI "tuple \fBsys_status\fP = (self\&.byte_value >> 6) & 0b11"
+.br
+.ti -1c
+.RI "tuple \fBgyro_status\fP = (self\&.byte_value >> 4) & 0b11"
+.br
+.ti -1c
+.RI "tuple \fBacc_status\fP = (self\&.byte_value >> 2) & 0b11"
+.br
+.ti -1c
+.RI "int \fBmag_status\fP = self\&.byte_value & 0b11"
+.br
+.ti -1c
+.RI "list \fBstatus\fP = [self\&.sys_status, self\&.gyro_status, self\&.acc_status, self\&.mag_status]"
+.br
+.in -1c
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "IMU\&.IMU\&.__init__ ( self,  i2c)"
+
+.SH "Member Function Documentation"
+.PP 
+.SS "IMU\&.IMU\&.cal_coeff_read ( self)"
+
+.SS "IMU\&.IMU\&.cal_coeff_write ( self)"
+
+.SS "IMU\&.IMU\&.cal_status ( self)"
+
+.SS "IMU\&.IMU\&.configure ( self)"
+
+.SS "IMU\&.IMU\&.read_angular_vel ( self)"
+
+.SS "IMU\&.IMU\&.read_Euler ( self)"
+
+.SH "Member Data Documentation"
+.PP 
+.SS "IMU\&.IMU\&.ACC_OFFSET = 0x55"
+
+.SS "IMU\&.IMU\&.ACC_RADIUS = 0x67"
+
+.SS "tuple IMU\&.IMU\&.acc_status = (self\&.byte_value >> 2) & 0b11"
+
+.SS "IMU\&.IMU\&.byte_value = struct\&.unpack('b', self\&.status_data)[0]"
+
+.SS "int IMU\&.IMU\&.CALIB_STAT = 0x35"
+
+.SS "int IMU\&.IMU\&.COMPASS = 0b1001"
+
+.SS "int IMU\&.IMU\&.EUL_X_LSB = 0x1A"
+
+.SS "int IMU\&.IMU\&.EUL_X_MSB = 0x1B"
+
+.SS "IMU\&.IMU\&.GYRO_OFFSET = 0x61"
+
+.SS "tuple IMU\&.IMU\&.gyro_status = (self\&.byte_value >> 4) & 0b11"
+
+.SS "int IMU\&.IMU\&.GYRO_X_LSB = 0x14"
+
+.SS "int IMU\&.IMU\&.GYRO_X_MSB = 0x15"
+
+.SS "IMU\&.IMU\&.i2c = i2c"
+
+.SS "IMU\&.IMU\&.IMU = 0x28"
+
+.SS "IMU\&.IMU\&.IMU_MODE = 0b1000"
+
+.SS "int IMU\&.IMU\&.M4G = 0b1010"
+
+.SS "IMU\&.IMU\&.MAG_OFFSET = 0x5B"
+
+.SS "IMU\&.IMU\&.MAG_RADIUS = 0x69"
+
+.SS "int IMU\&.IMU\&.mag_status = self\&.byte_value & 0b11"
+
+.SS "int IMU\&.IMU\&.NDOF = 0b1100"
+
+.SS "int IMU\&.IMU\&.NDOF_FMC_OFF = 0b1011"
+
+.SS "IMU\&.IMU\&.OPR_MODE = 0x3D"
+
+.SS "list IMU\&.IMU\&.status = [self\&.sys_status, self\&.gyro_status, self\&.acc_status, self\&.mag_status]"
+
+.SS "IMU\&.IMU\&.status_data = bytes(self\&.i2c\&.mem_read(1, self\&.IMU, self\&.CALIB_STAT))"
+
+.SS "tuple IMU\&.IMU\&.sys_status = (self\&.byte_value >> 6) & 0b11"
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for MECHA-12 Romi from the source code\&.

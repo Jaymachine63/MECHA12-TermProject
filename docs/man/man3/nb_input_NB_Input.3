@@ -1,0 +1,140 @@
+.TH "nb_input.NB_Input" 3 "MECHA-12 Romi" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+nb_input.NB_Input \- This class implements a task which reads user input one character at a time and puts characters together into lines of text\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fB__init__\fP (self, stream serial_device, echo=True)"
+.br
+.RI "Create a non-blocking input object\&. "
+.ti -1c
+.RI "\fBany\fP (self)"
+.br
+.RI "Check whether there are any lines of input and return the oldest if so\&. "
+.ti -1c
+.RI "\fBget\fP (self)"
+.br
+.RI "Get one line of characters which have been received through the serial device\&. "
+.ti -1c
+.RI "\fBcheck\fP (self)"
+.br
+.RI "This method is run within a task function to watch for characters coming through a serial port\&. "
+.in -1c
+.SS "Protected Attributes"
+
+.in +1c
+.ti -1c
+.RI "\fB_ser_dev\fP = serial_device"
+.br
+.ti -1c
+.RI "\fB_echo\fP = echo"
+.br
+.ti -1c
+.RI "str \fB_line\fP = ''"
+.br
+.ti -1c
+.RI "list \fB_list\fP = []"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+This class implements a task which reads user input one character at a time and puts characters together into lines of text\&. 
+
+The result is code that can be used similarly to the Python \fRinput()\fP function but doesn't block other tasks while waiting for the lazy bum user to type something\&. Lines of text which have been received are put into a list; the lines can then be read from the list as they become available\&.
+.SH "Usage Example"
+.PP
+The class in this module is designed to be run within a task which is run by the scheduler in \fR\fBcotask\&.py\fP\fP\&. See the example file \fRbasic_tasks\&.py\fP and the test code at the bottom of this file for examples of such tasks\&. 
+.PP
+.nf
+from pyb import USB_VCP
+from nb_input import NB_Input
+# \&.\&.\&.
+serial_stream = USB_VCP ()
+nb_in = NB_Input (serial_stream, echo=True)
+# \&.\&.\&.
+def blinky_task ():
+    '''!  Task which demonstrates non\-blocking input\&. This task should run
+    often (say, 50ms) for human input and faster for computer input '''
+    while True:
+        if nb_in\&.any ():
+            print ("\\r\\nInput:", nb_in\&.get ())
+        yield 0
+# \&.\&.\&.
+# Create a task and run the task scheduler as usual for @c cotask\&.py
+
+.fi
+.PP
+ 
+.SS "Feature"
+When running this code with Thonny, one often sees warnings such as \fRWARNING:root:Unexpected echo\fP, indicating that the text which Thonny saw from the microcontroller in response to user input isn't what Thonny expected to see\&. These warnings may be ignored\&. 
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "nb_input\&.NB_Input\&.__init__ ( self, stream serial_device,  echo = \fRTrue\fP)"
+
+.PP
+Create a non-blocking input object\&. There should be at most one of these for each serial port\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIserial_device\fP The UART or similar serial port through which characters will be received 
+.br
+\fIecho\fP If true, characters will be printed back as they're typed 
+.RE
+.PP
+
+.SH "Member Function Documentation"
+.PP 
+.SS "nb_input\&.NB_Input\&.any ( self)"
+
+.PP
+Check whether there are any lines of input and return the oldest if so\&. 
+.PP
+\fBReturns\fP
+.RS 4
+\fRTrue\fP if there are any lines of user input available 
+.RE
+.PP
+
+.SS "nb_input\&.NB_Input\&.check ( self)"
+
+.PP
+This method is run within a task function to watch for characters coming through a serial port\&. As characters are received, it assembles them into a line and makes a reference to the line available when the user has pressed Enter\&. 
+.PP
+\fBReturns\fP
+.RS 4
+A string containing a line of text, or \fRNone\fP if no line has been received since the last line was returned 
+.RE
+.PP
+
+.SS "nb_input\&.NB_Input\&.get ( self)"
+
+.PP
+Get one line of characters which have been received through the serial device\&. This method pops a line of text from the queue, so each line of text can only be gotten once\&. 
+.PP
+\fBReturns\fP
+.RS 4
+One line of input, or \fRNone\fP if no lines are available 
+.RE
+.PP
+
+.SH "Member Data Documentation"
+.PP 
+.SS "nb_input\&.NB_Input\&._echo = echo\fR [protected]\fP"
+
+.SS "str nb_input\&.NB_Input\&._line = ''\fR [protected]\fP"
+
+.SS "nb_input\&.NB_Input\&._list = []\fR [protected]\fP"
+
+.SS "nb_input\&.NB_Input\&._ser_dev = serial_device\fR [protected]\fP"
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for MECHA-12 Romi from the source code\&.

@@ -1,0 +1,162 @@
+.TH "task_share.Share" 3 "MECHA-12 Romi" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+task_share.Share \- An item which holds data to be shared between tasks\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBtask_share\&.BaseShare\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fB__init__\fP (self, type_code, thread_protect=True, name=None)"
+.br
+.RI "Create a shared data item used to transfer data between tasks\&. "
+.ti -1c
+.RI "\fBput\fP (self, data, in_ISR=False)"
+.br
+.RI "Write an item of data into the share\&. "
+.ti -1c
+.RI "\fBget\fP (self, in_ISR=False)"
+.br
+.RI "Read an item of data from the share\&. "
+.ti -1c
+.RI "\fB__repr__\fP (self)"
+.br
+.RI "Puts diagnostic information about the share into a string\&. "
+.in -1c
+
+Public Member Functions inherited from \fBtask_share\&.BaseShare\fP
+.in +1c
+.ti -1c
+.RI "\fB__init__\fP (self, type_code, thread_protect=True, name=None)"
+.br
+.RI "Create a base queue object when called by a child class initializer\&. "
+.in -1c
+.SS "Static Public Attributes"
+
+.in +1c
+.ti -1c
+.RI "int \fBser_num\fP = 0"
+.br
+.RI "A counter used to give serial numbers to shares for diagnostic use\&. "
+.in -1c
+.SS "Protected Attributes"
+
+.in +1c
+.ti -1c
+.RI "\fB_buffer\fP = array\&.array (type_code, [0])"
+.br
+.ti -1c
+.RI "str \fB_name\fP"
+.br
+.in -1c
+
+Protected Attributes inherited from \fBtask_share\&.BaseShare\fP
+.in +1c
+.ti -1c
+.RI "\fB_type_code\fP = type_code"
+.br
+.ti -1c
+.RI "\fB_thread_protect\fP = thread_protect"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+An item which holds data to be shared between tasks\&. 
+
+This class implements a shared data item which can be protected against data corruption by pre-emptive multithreading\&. Multithreading which can corrupt shared data includes the use of ordinary interrupts as well as the use of pre-emptive multithreading such as by a Real-Time Operating System (RTOS)\&.
+
+.PP
+An example of the creation and use of a share is as follows: 
+.PP
+.nf
+import task_share
+
+# This share holds a signed short (16\-bit) integer
+my_share = task_share\&.Queue ('h', name="My Share")
+
+# Somewhere in one task, put data into the share
+my_share\&.put (some_data)
+
+# In another task, read data from the share
+something = my_share\&.get ()
+
+.fi
+.PP
+ 
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "task_share\&.Share\&.__init__ ( self,  type_code,  thread_protect = \fRTrue\fP,  name = \fRNone\fP)"
+
+.PP
+Create a shared data item used to transfer data between tasks\&. This method allocates memory in which the shared data will be buffered\&.
+
+.PP
+Each share can only carry data of one particular type which must be chosen from the following list\&. The data type is specified by a one-letter type code which is given as for the Python \fRarray\&.array\fP type, which can be any of the following: \fBb\fP (signed char)   \fBB\fP (unsigned char)   8 bit integers    \fBh\fP (signed short)   \fBH\fP (unsigned short)   16 bit integers    \fBi\fP (signed int)   \fBI\fP (unsigned int)   32 bit integers (probably)    \fBl\fP (signed long)   \fBL\fP (unsigned long)   32 bit integers    \fBq\fP (signed long long)   \fBQ\fP (unsigned long long)   64 bit integers    \fBf\fP (float)   \fBd\fP (double-precision float)   
+
+.PP
+\fBParameters\fP
+.RS 4
+\fItype_code\fP The type of data items which the share can hold 
+.br
+\fIthread_protect\fP True if mutual exclusion protection is used 
+.br
+\fIname\fP A short name for the share, default \fRShareN\fP where \fRN\fP is a serial number for the share 
+.RE
+.PP
+
+.SH "Member Function Documentation"
+.PP 
+.SS "task_share\&.Share\&.__repr__ ( self)"
+
+.PP
+Puts diagnostic information about the share into a string\&. Shares are pretty simple, so we just put the name and type\&. 
+.SS "task_share\&.Share\&.get ( self,  in_ISR = \fRFalse\fP)"
+
+.PP
+Read an item of data from the share\&. If thread protection is enabled, interrupts are disabled during the time that the data is being read so as to prevent data corruption by changes in the data as it is being read\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIin_ISR\fP Set this to True if calling from within an ISR 
+.RE
+.PP
+
+.SS "task_share\&.Share\&.put ( self,  data,  in_ISR = \fRFalse\fP)"
+
+.PP
+Write an item of data into the share\&. This method puts data into the share; any old data is overwritten\&. This code disables interrupts during the writing so as to prevent data corrupting by an interrupt service routine which might access the same data\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIdata\fP The data to be put into this share 
+.br
+\fIin_ISR\fP Set this to True if calling from within an ISR 
+.RE
+.PP
+
+.SH "Member Data Documentation"
+.PP 
+.SS "task_share\&.Share\&._buffer = array\&.array (type_code, [0])\fR [protected]\fP"
+
+.SS "task_share\&.Share\&._name\fR [protected]\fP"
+\fBInitial value:\fP
+.nf
+=  None \\
+            else 'Share' + str (Share\&.ser_num)
+.PP
+.fi
+
+.SS "int task_share\&.Share\&.ser_num = 0\fR [static]\fP"
+
+.PP
+A counter used to give serial numbers to shares for diagnostic use\&. 
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for MECHA-12 Romi from the source code\&.

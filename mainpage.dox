@@ -1,0 +1,36 @@
+/** @mainpage Romi Robot Project Documentation
+ *
+ * @section intro Introduction
+ * This project implements a Romi Robot using a STM32, MicroPython, and a cooperative multitasking scheduler. 
+ * The robot Romi will travel through a premade track with multiple checkpoints. A black line 
+ * connects each of these checkpoints to each other that Romi will use to reach each checkpoint via a 
+ * line sensor, however between each checkpoint there is an obstacle that hinders the capabilities of the line 
+ * sensor or removes the possibility of using it entirely. In order to compensate for this, other means of navigation 
+ * are required, such as an <tt>IMU</tt> that determines the robots orientation.
+ *
+ * @section demo Demonstration
+ * Here is a demonstration video of the Romi Robot in action:
+ *
+ * @htmlonly
+ * <video width="640" height="360" controls>
+ *   <source src="images/MECHA12-Demo.mp4" type="video/mp4">
+ *   Your browser does not support the video tag.
+ * </video>
+ * @endhtmlonly
+ * 
+  * @section features Features
+ * - Motor control via PWM
+ * - Quadrature encoder feedback
+ * - IMU sensor integration
+ * - Cooperative multitasking with cotask
+ * 
+ * @section pin_layout Electronic Pin Layout
+ * Below is the pin layout for the electronic connections of the Romi Robot.
+    *
+ * <table>
+ *   <tr>
+ *     <td><img src="images/Romi_Pin_1.jpg" alt="Pin Layout 1" width="300"/></td>
+ *     <td><img src="images/Romi_Pin_2.jpg" alt="Pin Layout 2" width="300"/></td>
+ *   </tr>
+ * </table>
+ */

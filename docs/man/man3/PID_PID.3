@@ -1,0 +1,121 @@
+.TH "PID.PID" 3 "MECHA-12 Romi" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+PID.PID
+.SH SYNOPSIS
+.br
+.PP
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fB__init__\fP (self, \fBline_kp\fP, \fBline_ki\fP, \fBline_kd\fP, \fBimu_kp\fP, \fBimu_ki\fP, \fBimu_kd\fP)"
+.br
+.ti -1c
+.RI "\fBline_PID\fP (self, \fBactual\fP, current)"
+.br
+.ti -1c
+.RI "\fBimu_PID\fP (self, desired, current)"
+.br
+.ti -1c
+.RI "\fBreset_PID\fP (self)"
+.br
+.in -1c
+.SS "Public Attributes"
+
+.in +1c
+.ti -1c
+.RI "\fBline_kp\fP = line_kp"
+.br
+.ti -1c
+.RI "\fBline_ki\fP = line_ki"
+.br
+.ti -1c
+.RI "\fBline_kd\fP = line_kd"
+.br
+.ti -1c
+.RI "int \fBline_error\fP = 0"
+.br
+.ti -1c
+.RI "int \fBline_last_error\fP = 0"
+.br
+.ti -1c
+.RI "int \fBline_integral\fP = 0"
+.br
+.ti -1c
+.RI "\fBimu_kp\fP = imu_kp"
+.br
+.ti -1c
+.RI "\fBimu_ki\fP = imu_ki"
+.br
+.ti -1c
+.RI "\fBimu_kd\fP = imu_kd"
+.br
+.ti -1c
+.RI "int \fBimu_error\fP = 0"
+.br
+.ti -1c
+.RI "int \fBimu_last_error\fP = 0"
+.br
+.ti -1c
+.RI "int \fBimu_integral\fP = 0"
+.br
+.ti -1c
+.RI "\fBprevious_time\fP = ticks_ms()"
+.br
+.ti -1c
+.RI "\fBcurrent_time\fP = self\&.previous_time"
+.br
+.ti -1c
+.RI "int \fBactual\fP = 0"
+.br
+.in -1c
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "PID\&.PID\&.__init__ ( self,  line_kp,  line_ki,  line_kd,  imu_kp,  imu_ki,  imu_kd)"
+
+.SH "Member Function Documentation"
+.PP 
+.SS "PID\&.PID\&.imu_PID ( self,  desired,  current)"
+
+.SS "PID\&.PID\&.line_PID ( self,  actual,  current)"
+
+.SS "PID\&.PID\&.reset_PID ( self)"
+
+.SH "Member Data Documentation"
+.PP 
+.SS "int PID\&.PID\&.actual = 0"
+
+.SS "PID\&.PID\&.current_time = self\&.previous_time"
+
+.SS "int PID\&.PID\&.imu_error = 0"
+
+.SS "int PID\&.PID\&.imu_integral = 0"
+
+.SS "PID\&.PID\&.imu_kd = imu_kd"
+
+.SS "PID\&.PID\&.imu_ki = imu_ki"
+
+.SS "PID\&.PID\&.imu_kp = imu_kp"
+
+.SS "int PID\&.PID\&.imu_last_error = 0"
+
+.SS "int PID\&.PID\&.line_error = 0"
+
+.SS "int PID\&.PID\&.line_integral = 0"
+
+.SS "PID\&.PID\&.line_kd = line_kd"
+
+.SS "PID\&.PID\&.line_ki = line_ki"
+
+.SS "PID\&.PID\&.line_kp = line_kp"
+
+.SS "int PID\&.PID\&.line_last_error = 0"
+
+.SS "PID\&.PID\&.previous_time = ticks_ms()"
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for MECHA-12 Romi from the source code\&.

@@ -1,0 +1,186 @@
+.TH "Encoder.Encoder" 3 "MECHA-12 Romi" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Encoder.Encoder
+.SH SYNOPSIS
+.br
+.PP
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fB__init__\fP (self, \fBtim\fP, chA_pin, chB_pin)"
+.br
+.ti -1c
+.RI "\fBupdate\fP (self)"
+.br
+.ti -1c
+.RI "\fBget_position\fP (self)"
+.br
+.ti -1c
+.RI "\fBget_velocity\fP (self)"
+.br
+.ti -1c
+.RI "\fBzero\fP (self)"
+.br
+.in -1c
+.SS "Public Attributes"
+
+.in +1c
+.ti -1c
+.RI "int \fBAR\fP = 0xFFFF"
+.br
+.ti -1c
+.RI "\fBtim\fP = pyb\&.Timer(tim, period=self\&.AR, prescaler=0)"
+.br
+.ti -1c
+.RI "int \fBposition\fP = 0"
+.br
+.ti -1c
+.RI "int \fBprev_count\fP = 0"
+.br
+.ti -1c
+.RI "int \fBdelta\fP = 0"
+.br
+.ti -1c
+.RI "int \fBdelta1\fP = 0"
+.br
+.ti -1c
+.RI "int \fBdelta2\fP = 0"
+.br
+.ti -1c
+.RI "int \fBdelta3\fP = 0"
+.br
+.ti -1c
+.RI "int \fBdelta4\fP = 0"
+.br
+.ti -1c
+.RI "int \fBdelta5\fP = 0"
+.br
+.ti -1c
+.RI "int \fBdelta6\fP = 0"
+.br
+.ti -1c
+.RI "int \fBdelta7\fP = 0"
+.br
+.ti -1c
+.RI "int \fBdt\fP = 0"
+.br
+.ti -1c
+.RI "int \fBdt1\fP = 0"
+.br
+.ti -1c
+.RI "int \fBdt2\fP = 0"
+.br
+.ti -1c
+.RI "int \fBdt3\fP = 0"
+.br
+.ti -1c
+.RI "int \fBdt4\fP = 0"
+.br
+.ti -1c
+.RI "int \fBdt5\fP = 0"
+.br
+.ti -1c
+.RI "int \fBdt6\fP = 0"
+.br
+.ti -1c
+.RI "int \fBcurrent_count\fP = 0"
+.br
+.ti -1c
+.RI "int \fBprevious_count\fP = self\&.tim\&.counter()"
+.br
+.ti -1c
+.RI "\fBstart_time\fP = None"
+.br
+.ti -1c
+.RI "\fBprevious_time\fP = ticks_ms()"
+.br
+.ti -1c
+.RI "\fBcurrent_time\fP = self\&.previous_time"
+.br
+.ti -1c
+.RI "int \fBelapsed_time\fP = 0"
+.br
+.ti -1c
+.RI "tuple \fBpos\fP = (self\&.position/1440) * (70/1000) * math\&.pi"
+.br
+.ti -1c
+.RI "tuple \fBdelta_m\fP = (deltas/(8*1440)) * (70/1000) * math\&.pi"
+.br
+.in -1c
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "Encoder\&.Encoder\&.__init__ ( self,  tim,  chA_pin,  chB_pin)"
+
+.SH "Member Function Documentation"
+.PP 
+.SS "Encoder\&.Encoder\&.get_position ( self)"
+
+.SS "Encoder\&.Encoder\&.get_velocity ( self)"
+
+.SS "Encoder\&.Encoder\&.update ( self)"
+
+.SS "Encoder\&.Encoder\&.zero ( self)"
+
+.SH "Member Data Documentation"
+.PP 
+.SS "int Encoder\&.Encoder\&.AR = 0xFFFF"
+
+.SS "int Encoder\&.Encoder\&.current_count = 0"
+
+.SS "Encoder\&.Encoder\&.current_time = self\&.previous_time"
+
+.SS "int Encoder\&.Encoder\&.delta = 0"
+
+.SS "int Encoder\&.Encoder\&.delta1 = 0"
+
+.SS "int Encoder\&.Encoder\&.delta2 = 0"
+
+.SS "int Encoder\&.Encoder\&.delta3 = 0"
+
+.SS "int Encoder\&.Encoder\&.delta4 = 0"
+
+.SS "int Encoder\&.Encoder\&.delta5 = 0"
+
+.SS "int Encoder\&.Encoder\&.delta6 = 0"
+
+.SS "int Encoder\&.Encoder\&.delta7 = 0"
+
+.SS "tuple Encoder\&.Encoder\&.delta_m = (deltas/(8*1440)) * (70/1000) * math\&.pi"
+
+.SS "int Encoder\&.Encoder\&.dt = 0"
+
+.SS "int Encoder\&.Encoder\&.dt1 = 0"
+
+.SS "int Encoder\&.Encoder\&.dt2 = 0"
+
+.SS "int Encoder\&.Encoder\&.dt3 = 0"
+
+.SS "int Encoder\&.Encoder\&.dt4 = 0"
+
+.SS "int Encoder\&.Encoder\&.dt5 = 0"
+
+.SS "int Encoder\&.Encoder\&.dt6 = 0"
+
+.SS "int Encoder\&.Encoder\&.elapsed_time = 0"
+
+.SS "tuple Encoder\&.Encoder\&.pos = (self\&.position/1440) * (70/1000) * math\&.pi"
+
+.SS "int Encoder\&.Encoder\&.position = 0"
+
+.SS "int Encoder\&.Encoder\&.prev_count = 0"
+
+.SS "int Encoder\&.Encoder\&.previous_count = self\&.tim\&.counter()"
+
+.SS "Encoder\&.Encoder\&.previous_time = ticks_ms()"
+
+.SS "Encoder\&.Encoder\&.start_time = None"
+
+.SS "Encoder\&.Encoder\&.tim = pyb\&.Timer(tim, period=self\&.AR, prescaler=0)"
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for MECHA-12 Romi from the source code\&.

@@ -1,0 +1,80 @@
+.TH "task_share" 3 "MECHA-12 Romi" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+task_share
+.SH SYNOPSIS
+.br
+.PP
+.SS "Classes"
+
+.in +1c
+.ti -1c
+.RI "class \fBBaseShare\fP"
+.br
+.RI "Base class for queues and shares which exchange data between tasks\&. "
+.ti -1c
+.RI "class \fBQueue\fP"
+.br
+.RI "A queue which is used to transfer data from one task to another\&. "
+.ti -1c
+.RI "class \fBShare\fP"
+.br
+.RI "An item which holds data to be shared between tasks\&. "
+.in -1c
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBshow_all\fP ()"
+.br
+.RI "Create a string holding a diagnostic printout showing the status of each queue and share in the system\&. "
+.in -1c
+.SS "Variables"
+
+.in +1c
+.ti -1c
+.RI "list \fBshare_list\fP = []"
+.br
+.RI "This is a system-wide list of all the queues and shared variables\&. "
+.ti -1c
+.RI "dict \fBtype_code_strings\fP"
+.br
+.RI "This dictionary allows readable printouts of queue and share data types\&. "
+.in -1c
+.SH "Function Documentation"
+.PP 
+.SS "task_share\&.show_all ()"
+
+.PP
+Create a string holding a diagnostic printout showing the status of each queue and share in the system\&. 
+.PP
+\fBReturns\fP
+.RS 4
+A string containing information about each queue and share 
+.RE
+.PP
+
+.SH "Variable Documentation"
+.PP 
+.SS "list task_share\&.share_list = []"
+
+.PP
+This is a system-wide list of all the queues and shared variables\&. It is used to create diagnostic printouts\&. 
+.SS "dict task_share\&.type_code_strings"
+\fBInitial value:\fP
+.nf
+1 =  {'b' : "int8",   'B' : "uint8",
+2                      'h' : "int16",  'H' : "uint16",
+3                      'i' : "int(?)", 'I' : "uint(?)",
+4                      'l' : "int32",  'L' : "uint32",
+5                      'q' : "int64",  'Q' : "uint64",
+6                      'f' : "float",  'd' : "double"}
+.PP
+.fi
+
+.PP
+This dictionary allows readable printouts of queue and share data types\&. 
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for MECHA-12 Romi from the source code\&.

@@ -1,0 +1,50 @@
+.TH "task_share.BaseShare" 3 "MECHA-12 Romi" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+task_share.BaseShare \- Base class for queues and shares which exchange data between tasks\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherited by \fBtask_share\&.Queue\fP, and \fBtask_share\&.Share\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fB__init__\fP (self, type_code, thread_protect=True, name=None)"
+.br
+.RI "Create a base queue object when called by a child class initializer\&. "
+.in -1c
+.SS "Protected Attributes"
+
+.in +1c
+.ti -1c
+.RI "\fB_type_code\fP = type_code"
+.br
+.ti -1c
+.RI "\fB_thread_protect\fP = thread_protect"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Base class for queues and shares which exchange data between tasks\&. 
+
+One should never create an object from this class; it doesn't do anything useful\&. It exists to implement things which are common between its child classes \fR\fBQueue\fP\fP and \fR\fBShare\fP\fP\&. 
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "task_share\&.BaseShare\&.__init__ ( self,  type_code,  thread_protect = \fRTrue\fP,  name = \fRNone\fP)"
+
+.PP
+Create a base queue object when called by a child class initializer\&. This method creates the things which queues and shares have in common\&. 
+.SH "Member Data Documentation"
+.PP 
+.SS "task_share\&.BaseShare\&._thread_protect = thread_protect\fR [protected]\fP"
+
+.SS "task_share\&.BaseShare\&._type_code = type_code\fR [protected]\fP"
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for MECHA-12 Romi from the source code\&.

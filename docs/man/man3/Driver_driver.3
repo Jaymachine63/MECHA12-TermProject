@@ -1,0 +1,61 @@
+.TH "Driver.driver" 3 "MECHA-12 Romi" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Driver.driver
+.SH SYNOPSIS
+.br
+.PP
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fB__init__\fP (self, PWM, DIR, nSLP, tim, channel)"
+.br
+.ti -1c
+.RI "\fBset_effort\fP (self, effort)"
+.br
+.ti -1c
+.RI "\fBenable_motor\fP (self)"
+.br
+.ti -1c
+.RI "\fBdisable_motor\fP (self)"
+.br
+.in -1c
+.SS "Public Attributes"
+
+.in +1c
+.ti -1c
+.RI "\fBenable\fP = Pin(nSLP, mode=Pin\&.OUT_PP)"
+.br
+.ti -1c
+.RI "\fBphase\fP = Pin(DIR, mode=Pin\&.OUT_PP)"
+.br
+.ti -1c
+.RI "\fBpwm\fP = tim\&.channel(channel, pin=PWM, mode=Timer\&.PWM, pulse_width_percent=0)"
+.br
+.in -1c
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "Driver\&.driver\&.__init__ ( self,  PWM,  DIR,  nSLP,  tim,  channel)"
+
+.SH "Member Function Documentation"
+.PP 
+.SS "Driver\&.driver\&.disable_motor ( self)"
+
+.SS "Driver\&.driver\&.enable_motor ( self)"
+
+.SS "Driver\&.driver\&.set_effort ( self,  effort)"
+
+.SH "Member Data Documentation"
+.PP 
+.SS "Driver\&.driver\&.enable = Pin(nSLP, mode=Pin\&.OUT_PP)"
+
+.SS "Driver\&.driver\&.phase = Pin(DIR, mode=Pin\&.OUT_PP)"
+
+.SS "Driver\&.driver\&.pwm = tim\&.channel(channel, pin=PWM, mode=Timer\&.PWM, pulse_width_percent=0)"
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for MECHA-12 Romi from the source code\&.

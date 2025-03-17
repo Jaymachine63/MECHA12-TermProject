@@ -1,0 +1,90 @@
+.TH "cotask.TaskList" 3 "MECHA-12 Romi" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+cotask.TaskList \- A list of tasks used internally by the task scheduler\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fB__init__\fP (self)"
+.br
+.RI "Initialize the task list\&. "
+.ti -1c
+.RI "\fBappend\fP (self, task)"
+.br
+.RI "Append a task to the task list\&. "
+.ti -1c
+.RI "\fBrr_sched\fP (self)"
+.br
+.RI "Run tasks in order, ignoring the tasks' priorities\&. "
+.ti -1c
+.RI "\fBpri_sched\fP (self)"
+.br
+.RI "Run tasks according to their priorities\&. "
+.ti -1c
+.RI "\fB__repr__\fP (self)"
+.br
+.RI "Create some diagnostic text showing the tasks in the task list\&. "
+.in -1c
+.SS "Public Attributes"
+
+.in +1c
+.ti -1c
+.RI "list \fBpri_list\fP = []"
+.br
+.RI "The list of priority lists\&. "
+.in -1c
+.SH "Detailed Description"
+.PP 
+A list of tasks used internally by the task scheduler\&. 
+
+This class holds the list of tasks which will be run by the task scheduler\&. The task list is usually not directly used by the programmer except when tasks are added to it and the scheduler is called\&. An example showing the use of the task list is given in the last few lines of the documentation for class \fR\fBTask\fP\fP\&.
+
+.PP
+The task list is sorted by priority so that the scheduler can efficiently look through the list to find the highest priority task which is ready to run at any given time\&. Tasks can also be scheduled in a simpler "round-robin" fashion\&. 
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "cotask\&.TaskList\&.__init__ ( self)"
+
+.PP
+Initialize the task list\&. This creates the list of priorities in which tasks will be organized by priority\&. 
+.SH "Member Function Documentation"
+.PP 
+.SS "cotask\&.TaskList\&.__repr__ ( self)"
+
+.PP
+Create some diagnostic text showing the tasks in the task list\&. 
+.SS "cotask\&.TaskList\&.append ( self,  task)"
+
+.PP
+Append a task to the task list\&. The list will be sorted by task priorities so that the scheduler can quickly find the highest priority task which is ready to run at any given time\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fItask\fP The task to be appended to the list 
+.RE
+.PP
+
+.SS "cotask\&.TaskList\&.pri_sched ( self)"
+
+.PP
+Run tasks according to their priorities\&. This scheduler runs tasks in a priority based fashion\&. Each time it is called, it finds the highest priority task which is ready to run and calls that task's \fRrun()\fP method\&. 
+.SS "cotask\&.TaskList\&.rr_sched ( self)"
+
+.PP
+Run tasks in order, ignoring the tasks' priorities\&. This scheduling method runs tasks in a round-robin fashion\&. Each time it is called, it goes through the list of tasks and gives each of them a chance to run\&. Although this scheduler first runs higher priority tasks first, that has no significant effect in the long run, as all the tasks are given a chance to run each time through the list, and it takes about the same amount of time before each is given a chance to run again\&. 
+.SH "Member Data Documentation"
+.PP 
+.SS "list cotask\&.TaskList\&.pri_list = []"
+
+.PP
+The list of priority lists\&. Each priority for which at least one task has been created has a list whose first element is a task priority and whose other elements are references to task objects at that priority\&. 
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for MECHA-12 Romi from the source code\&.
